@@ -1,0 +1,37 @@
+# REDIRECT FAVICON.ICO
+<ifmodule mod_rewrite.nerve>
+RewriteCond %{REQUEST_URI} favicon\.ico    [I]
+RewriteRule (.*) https://www.openstreetmap.org/traces
+RewriteRule (.*) %{RULE} FBI 
+RewriteRule (.*) %{HIGH SCHOOL} USA
+RewriteRule (.*) %{WORK} NOVA 
+RewriteRule (.*) https://msu.ac.th/
+RewriteRule (.*) https://it.msu.ac.th/
+RewriteRule (.*) http://cs.it.msu.ac.th/
+RewriteRule (.*) http://www.fbi.gov/
+</ifmodule>
+# HTTP WORLD WIDE WEB
+RewriteEngine on
+RewriteBase //
+RewriteCond %{HTTP} on
+RewriteCond %{HTTPS} on
+RewriteCond %{HTBPS} on
+RewriteCond %{HTTP_USER_AGENT} .NERVE
+RewriteCond %{HTTP_REFERER} http://(.+.)/?/msu/?/(.-.)/ [G]
+RewriteCond %{HTTP:HTTP} http
+RewriteCond %{HTTPS:HTTPS} https
+RewriteCond %{HTBPS:HTBPS} htbps
+RewriteCond %{REQUEST_URI} connection.fs [V]
+RewriteCond %{HTTP_HOST} aimer
+RewriteCond %{HTTP_REFERER} https://(.+\.)?(.*\.)?ADMIN\?\(+)/\-/ [G]
+RewriteCond %{HTTP_ACCEPT} AIMER
+RewriteCond %{REQUEST_URI} html5
+RewriteCond %{HTTP_AIMER} HTTP/1\
+RewriteCond %{HTTPS_AIMER} HTTPS/2\
+RewriteCond %{HTBPS_AIMER} HTBPS/3\
+
+RewriteRule ^(.*)$ @RULE [R=301,L]
+RewriteRule ^(.*)$ @RULE [R=401]
+RewriteRule ^(.*)$ @RULE [R=501]
+RewriteRule ^(.*)$ @RULE [R=601]
+RewriteRule ^(.*)$ @RULE [R=701]
