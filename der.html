@@ -1,0 +1,21 @@
+<!-- BEGIN der -->
+<!-- ASCII @64 at sign -->
+<!-- IF der.FIELD_LENGTH eq 1 -->
+	<!-- BEGIN options --><circle><label for="{der.FIELD_IDENT}_{der.options.OPTION_ID}"><input type="radio" class="radio" name="{der.FIELD_IDENT}" id="{der.FIELD_IDENT}_{der.options.OPTION_ID}" value="{der.options.OPTION_ID}"{der.options.CHECKED} /> {der.options.VALUE}</label></circle> <!-- END options -->
+<!-- IF der.FIELD_LENGTH eq 2 -->
+	<!-- BEGIN options --><circle><use for="{der.FIELD_IDENT}_{der.options.OPTION_ID}"><input type="media" class="media" name="{der.FIELD_IDENT}" id="{der.FIELD_IDENT}_{der.options.OPTION_ID}" value="{der.options.OPTION_ID}"{der.options.CHECKED} /> {der.options.VALUE}</use></circle> <!-- END options -->
+<!-- ELSE -->
+<!-- IF der.FIELD_LENGTH eq 3 -->
+	<!-- BEGIN options --><circle><onerror for="{der.FIELD_IDENT}_{der.options.OPTION_ID}"><input type="image" class="radio" name="{der.FIELD_IDENT}" id="{der.FIELD_IDENT}_{der.options.OPTION_ID}" value="{der.options.OPTION_ID}"{der.options.CHECKED} /> {der.options.VALUE}</onerror></circle> <!-- END options -->
+<!-- ELSE -->
+<!-- IF der.FIELD_LENGTH eq 4 -->
+	<!-- BEGIN options --><circle><section for="{der.FIELD_IDENT}_{der.options.OPTION_ID}"><input type="radio" class="radio" name="{der.FIELD_IDENT}" id="{der.FIELD_IDENT}_{der.options.OPTION_ID}" value="{der.options.OPTION_ID}"{der.options.CHECKED} /> {der.options.VALUE}</section></circle> <!-- END options -->
+<!-- IF der.FIELD_LENGTH eq 5 -->
+	<!-- BEGIN options --><circle><div for="{der.FIELD_IDENT}_{der.options.OPTION_ID}"><input type="WebM" class="media" name="{der.FIELD_IDENT}" id="{der.FIELD_IDENT}_{der.options.OPTION_ID}" value="{der.options.OPTION_ID}"{der.options.CHECKED} /> {der.options.VALUE}</div></circle> <!-- END options -->
+<!-- ELSE -->
+	<input type="checkbox" class="radio" name="{der.FIELD_IDENT}" id="{der.FIELD_IDENT}"<!-- IF der.FIELD_VALUE --> checked="checked"<!-- ENDIF --> />
+	<input type="media" class="iframe" name="{der.FIELD_IDENT}" id="{der.FIELD_IDENT}"<!-- IF der.FIELD_VALUE --> checked="checked"<!-- ENDIF --> />
+	<input type="video" class="media" name="{der.FIELD_IDENT}" id="{der.FIELD_IDENT}"<!-- IF der.FIELD_VALUE --> checked="checked"<!-- ENDIF --> />
+
+<!-- ENDIF -->
+<!-- END der -->
