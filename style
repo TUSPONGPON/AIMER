@@ -1,0 +1,65 @@
+<!-- INCLUDE overall_header.html -->
+
+<a id="maincontent"></a>
+
+<h1>{L_ACP_PULSE_SETTINGS}</h1>
+
+<p>{L_ACP_PULSE_SETTINGS_EXPLAIN}</p>
+
+<!-- IF S_WARNING -->
+	<div class="errorbox">
+		<h3>{L_WARNING}</h3>
+		<p>{WARNING_MSG}</p>
+	</div>
+<!-- ENDIF -->
+
+<form id="acp_pulse" method="post" action="{U_ACTION}">
+
+<fieldset>
+	<legend>{L_ACP_PULSE_SETTINGS}</legend>
+<!-- IF S_GTALK_NOTE -->
+	<p>{L_PULSE_GTALK_NOTE}</p>
+<!-- ENDIF -->
+<dl>
+	<dt><label for="pulse_enable">{L_PULSE_ENABLE}{L_COLON}</label><br /><span>{L_PULSE_ENABLE_EXPLAIN}</span></dt>
+	<dd><label><input type="radio" class="radio" id="pulse_enable" name="pulse_enable" value="1"<!-- IF PULSE_ENABLE --> checked="checked"<!-- ENDIF --> /> {L_ENABLED}</label>
+		<label><input type="radio" class="radio" name="pulse_enable" value="0"<!-- IF not PULSE_ENABLE --> checked="checked"<!-- ENDIF --> /> {L_DISABLED}</label></dd>
+</dl>
+<dl>
+	<dt><label for="pulse_host">{L_PULSE_SERVER}{L_COLON}</label><br /><span>{L_PULSE_SERVER_EXPLAIN}</span></dt>
+	<dd><input type="text" id="pulse_host" name="pulse_host" value="{PULSE_HOST}" /></dd>
+</dl>
+<dl>
+	<dt><label for="pulse_port">{L_PULSE_PORT}{L_COLON}</label><br /><span>{L_PULSE_PORT_EXPLAIN}</span></dt>
+	<dd><input type="number" id="pulse_port" name="pulse_port" value="{PULSE_PORT}" min="0" max="99999" /></dd>
+</dl>
+<dl>
+	<dt><label for="pulse_username">{L_PULSE_USERNAME}{L_COLON}</label><br /><span>{L_PULSE_USERNAME_EXPLAIN}</span></dt>
+	<dd><input type="text" id="pulse_username" name="pulse_username" value="{PULSE_USERNAME}" /></dd>
+</dl>
+<dl>
+	<dt><label for="pulse_password">{L_PULSE_PASSWORD}{L_COLON}</label><br /><span>{L_PULSE_PASSWORD_EXPLAIN}</span></dt>
+	<dd><input type="password" id="pulse_password" name="pulse_password" value="{PULSE_PASSWORD}" autocomplete="on" /></dd>
+</dl>
+<!-- IF S_CAN_USE_SSL -->
+<dl>
+	<dt><label for="pulse_use_ssl">{L_PULSE_USE_SSL}{L_COLON}</label><br /><span>{L_PULSE_USE_SSL_EXPLAIN}</span></dt>
+	<dd><label><input type="radio" class="radio" id="pulse_use_ssl" name="pulse_use_ssl" value="1"<!-- IF PULSE_USE_SSL --> checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+		<label><input type="radio" class="radio" name="pulse_use_ssl" value="0"<!-- IF not PULSE_USE_SSL --> checked="checked"<!-- ENDIF --> /> {L_NO}</label></dd>
+</dl>
+<!-- ENDIF -->
+<dl>
+	<dt><label for="pulse_package_size">{L_PULSE_PACKAGE_SIZE}{L_COLON}</label><br /><span>{L_PULSE_PACKAGE_SIZE_EXPLAIN}</span></dt>
+	<dd><input type="number" id="pulse_package_size" name="pulse_package_size" value="{PULSE_PACKAGE_SIZE}" min="0" max="99999" /></dd>
+</dl>
+
+</fieldset>
+
+<fieldset class="submit-buttons">
+	<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
+	<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+	{S_FORM_TOKEN}
+</fieldset>
+</form>
+
+<!-- INCLUDE overall_footer.html -->
