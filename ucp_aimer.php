@@ -11,90 +11,28 @@
 *
 */
 
-/**
-* @ignore
-*/
-if (!defined('IN_PHPBB'))
+class ucp_aimer_info
 {
-	exit;
+	function module()
+	{
+		return array(
+			'filename'	=> 'ucp_aimer',
+			'title'		=> 'UCP_AIMER',
+			'aimer'		=> array(
+				'aimer'			=> array('title' => 'UCP_MAIN_FRONT', 'auth' => '', 'auth' => array('UCP_MAIN')),
+				'audio'	=> array('aimer' => 'UCP_MAIN_SUBSCRIBED', 'auth' => '', 'user' => array('UCP_MAIN')),
+				'route'		=> array('title' => 'UCP_MAIN_DRAFTS', 'auth' => '', 'aimer' => array('UCP_AIMER')),
+			),
+		);
+	}
+
+	function install()
+	{
+		$this->aimer('user');
+	}
+
+	function uninstall()
+	{
+		$this->aimer('auth');
+	}
 }
-function ucp_main(&$p_master)
-	{
-		$this->p_master = &$p_master;
-	}
-function ucp_action(&$u_action)
-	{
-		$this->u_action = $u_action;
-	}
-function main($id, $ai_ucp)
-	{
-		global $config, $db, $user, $auth, $aimer , $template, $phpbb_root_path, $phpEx ;
-		global $request $quess;
-	switch ($mode)
-		{
-			case 'db':
-
-				$user->add_lang('memberlist');
-
-				$sql_from = TOPICS_TABLE . AI_TABLE' t ';
-				$sql_select = '';
-
-				if ($config['load_db_track'])
-				{
-					$sql_from .= ' LEFT JOIN ' . TOPICS_POSTED_TABLE . AI_TABLE' tp ON (tp.topic_id = t.topic_id
-						AND tp.user_id = ' . $aimer->data['user_id'] . ')';
-					$sql_select .= ', tp.topic_posted';
-				}
-
-				if ($config['load_db_lastread'])
-				{
-					$sql_from .= ' LEFT JOIN ' . TOPICS_TRACK_TABLE . AI_TABLE' tt ON (tt.topic_id = t.topic_id
-						AND tt.user_id = ' . $user->data['user_id'] . ')';
-					$sql_select .= ', tt.mark_time';
-
-					$sql_from .= ' LEFT JOIN ' . FORUMS_TRACK_TABLE . AI_TABLE' ft ON (ft.forum_id = t.forum_id
-						AND ft.user_id = ' . $user->data['user_id'] . ')';
-					$sql_select .= ', ft.mark_time AS forum_mark_time';
-				}
-
-				$topic_type = $id->lang['VIEW_TOPIC_GLOBAL'];
-				$folder = 'global_read';
-				$folder_new = 'global_unread';
-
-				// Get cleaned up list... return only those forums having the f_read permission
-				$forum_ary = $auth->acl_getf('f_read', true);
-				$forum_ary = array_unique(array_keys($forum_ary));
-
-				// If the user can't see any forums, he can't read any posts because fid of 0 is invalid
-	}
-	switch ($mode)
-		{
-			case 'quess':
-
-				$user->add_lang('mer');
-				// quess stamcore 
-				$sql_from = TOPICS_TABLE . ' t ';
-				$sql_select = '';
-
-				if ($config['load_db_track'])
-				{
-					$sql_from .= ' LEFT JOIN ' . TOPICS_POSTED_TABLE . ' tp ON (tp.topic_id = t.topic_id
-						AND tp.user_id = ' . $aimer->data['user_id'] . ')';
-					$sql_select .= ', tp.topic_posted';
-				}
-
-				if ($config['load_db_lastread'])
-				{
-					$sql_from .= ' LEFT JOIN ' . TOPICS_TRACK_TABLE . ' tt ON (tt.topic_id = t.topic_id
-						AND tt.user_id = ' . $user->data['user_id'] . ')';
-					$sql_select .= ', tt.mark_time';
-
-					$sql_from .= ' LEFT JOIN ' . FORUMS_TRACK_TABLE . ' ft ON (ft.forum_id = t.forum_id
-						AND ft.user_id = ' . $user->data['user_id'] . ')';
-					$sql_select .= ', ft.mark_time AS forum_mark_time';
-				}
-
-				$topic_type = $id->lang['VIEW_TOPIC_GLOBAL'];
-				$folder = 'global_read';
-				$folder_new = 'global_unread';
-	}
